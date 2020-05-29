@@ -6,6 +6,7 @@ namespace BandsOfSuncoast
 {
     class Program
     {
+
         static string PromptForString(string prompt)
         {
             Console.Write(prompt);
@@ -30,6 +31,24 @@ namespace BandsOfSuncoast
                 return 0;
             }
         }
+
+        static bool PromptForBool(string prompt)
+        {
+            Console.Write(prompt);
+            bool inputFromUser;
+            var isThisGoodInput = bool.TryParse(Console.ReadLine(), out inputFromUser);
+
+            if (inputFromUser == true || inputFromUser == false)
+            {
+                return inputFromUser;
+            }
+            else
+            {
+                Console.WriteLine("Sorry, that isn't a valid input, I'm using false as your answer.");
+                return false;
+            }
+        }
+
         static void Main(string[] args)
         {
             var context = new BandsOfSuncoastContext();
@@ -81,27 +100,40 @@ namespace BandsOfSuncoast
                 {
                     foreach (var band in bands)
                     {
+                        Console.WriteLine("Here are the list of bands under Bands Of Suncoast!");
                         Console.WriteLine(band.Name);
                     }
                 }
 
+                if (choice == 2)
+                {
+                    var newName = PromptForString("Name: ");
+                    var newCountryOfOrigin = PromptForString("Country Of Origin: ");
+                    var newNumberOfMembers = PromptForInteger("Number Of Members: ");
+                    var newWebsite = PromptForString("Website: ");
+                    var newStyle = PromptForString("Style: ");
+                    var newIsSigned = PromptForBool("Is This Group Signed 'True or False': ");
+                    var newContactName = PromptForString("Bands Main Contact Name: ");
+                    var newContactPhoneNumber = PromptForString($"Contact number for {newContactName}: ");
 
+
+                    var newBand = new Band
+                    {
+                        Name = newName,
+                        CountryOfOrigin = newCountryOfOrigin,
+                        NumberOfMembers = newNumberOfMembers,
+                        Website = newWebsite,
+                        Style = newStyle,
+                        IsSigned = newIsSigned,
+                        ContactName = newContactName,
+                        ContactPhoneNumber = newContactPhoneNumber,
+                    };
+
+                    context.Bands.Add(newBand);
+                    context.SaveChanges();
+                }
             }
         }
     }
 }
-// var newBand = new Band
-// {
-//     Name = "The Owls",
-//     CountryOfOrigin = "Australia",
-//     NumberOfMembers = 5,
-//     Website = "Owls.com",
-//     Style = "R&B",
-//     IsSigned = true,
-//     ContactName = "Riz",
-//     ContactPhoneNumber = "727-239-9058"
-// };
 
-// context.Bands.Add(newBand);
-// context.SaveChanges();
-// Console.WriteLine($"Here are the list of {bands}");
