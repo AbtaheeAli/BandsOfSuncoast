@@ -73,8 +73,18 @@ namespace BandsOfSuncoast
 
                 if (choice == 10)
                 {
+                    Console.WriteLine("Goodbye!");
                     userHasQuitApp = true;
                 }
+
+                if (choice == 1)
+                {
+                    foreach (var band in bands)
+                    {
+                        Console.WriteLine(band.Name);
+                    }
+                }
+
 
             }
         }
