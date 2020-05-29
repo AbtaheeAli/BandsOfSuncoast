@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace BandsOfSuncoast
 {
-  class Program
-  {
-    static void Main(string[] args)
+    class Program
     {
-      Console.WriteLine("Welcome to C#");
+        static void Main(string[] args)
+        {
+
+        }
     }
-  }
 }
