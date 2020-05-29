@@ -71,7 +71,10 @@ namespace BandsOfSuncoast
 
                 var choice = PromptForInteger("Choice:");
 
-
+                if (choice == 10)
+                {
+                    userHasQuitApp = true;
+                }
 
             }
         }
