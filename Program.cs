@@ -133,9 +133,18 @@ namespace BandsOfSuncoast
                     context.SaveChanges();
                 }
 
-                if (choice == 4)
+                if (choice == 7)
                 {
+                    Console.WriteLine("Here are the list of albums in order by release date: ");
+                    foreach (var album in albums)
+                    {
+                        var albumInOrderByDateReleased = context.Albums.OrderBy(albums => albums.ReleaseDate);
+                        var description = album.Description();
 
+                        Console.WriteLine(description);
+                    }
+                    Console.WriteLine("Press any key to return to the main menu");
+                    Console.ReadKey();
                 }
 
                 if (choice == 8)

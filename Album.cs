@@ -12,5 +12,11 @@ namespace BandsOfSuncoast
         public DateTime ReleaseDate { get; set; }
         public int BandId { get; set; }
         public Band Band { get; set; }
+        public string Description()
+        {
+            var descriptionOfAlbums = ($"{Title} was release around {ReleaseDate}");
+
+            return descriptionOfAlbums;
+        }
     }
 }
