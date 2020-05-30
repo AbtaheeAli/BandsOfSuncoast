@@ -74,7 +74,7 @@ namespace BandsOfSuncoast
 
                 Console.WriteLine("(4) - Remove a band from Bands Of Suncoast");
 
-                Console.WriteLine("(5) - Sign a band to Bands Of Suncoast");
+                Console.WriteLine("(5) - Resign a band to Bands Of Suncoast");
 
                 Console.WriteLine("(6) - View a specific band and their albums");
 
@@ -131,6 +131,43 @@ namespace BandsOfSuncoast
 
                     context.Bands.Add(newBand);
                     context.SaveChanges();
+                }
+
+                if (choice == 4)
+                {
+
+                }
+
+                if (choice == 8)
+                {
+                    Console.WriteLine("Here are the list of bands that are signed by Bands Of Suncoast.");
+                    foreach (var band in bands)
+                    {
+                        if (band.IsSigned == true)
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine(band.Name, band.IsSigned);
+                            Console.WriteLine();
+                        }
+                    }
+                    Console.WriteLine("This is the list of current bands signed. Press any key to return to the main menu");
+                    Console.ReadKey();
+                }
+
+                if (choice == 9)
+                {
+                    Console.WriteLine("Here are the list of bands that are not signed by Bands Of Suncoast.");
+                    foreach (var band in bands)
+                    {
+                        if (band.IsSigned == false)
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine(band.Name, band.IsSigned);
+                            Console.WriteLine();
+                        }
+                    }
+                    Console.WriteLine("This is the list of current bands signed. Press any key to return to the main menu");
+                    Console.ReadKey();
                 }
             }
         }
