@@ -32,6 +32,23 @@ namespace BandsOfSuncoast
             }
         }
 
+        static DateTime PromptForDateTime(string prompt)
+        {
+            Console.Write(prompt);
+            DateTime inputByUser;
+            var isThisGoodInput = DateTime.TryParse(Console.ReadLine(), out inputByUser);
+
+            if (isThisGoodInput)
+            {
+                return inputByUser;
+            }
+            else
+            {
+                Console.WriteLine("Sorry, that isn't a valid input, I'm using 0 as your answer.");
+                return DateTime.Now;
+            }
+        }
+
         static bool PromptForBool(string prompt)
         {
             Console.Write(prompt);
@@ -98,11 +115,13 @@ namespace BandsOfSuncoast
 
                 if (choice == 1)
                 {
+                    Console.WriteLine("Here are the list of bands under Bands Of Suncoast!");
                     foreach (var band in bands)
                     {
-                        Console.WriteLine("Here are the list of bands under Bands Of Suncoast!");
                         Console.WriteLine(band.Name);
                     }
+                    Console.WriteLine("Press any key to return to the main menu");
+                    Console.ReadKey();
                 }
 
                 if (choice == 2)
@@ -133,15 +152,49 @@ namespace BandsOfSuncoast
                     context.SaveChanges();
                 }
 
+                if (choice == 3)
+                {
+                    Console.WriteLine("Here is a list of bands in Bands of Suncoast: ");
+                    foreach (var band in bands)
+                    {
+                        Console.WriteLine($"({band.Id}), {band.Name} ");
+                    }
+                    var selectedBandId = PromptForInteger("Which band would you like to chose?");
+                    var selectedBand = bands.FirstOrDefault(band => band.Id == selectedBandId);
+                    if (selectedBand == null)
+                    {
+                        Console.WriteLine("You entered a band that does not exist. Returning to the main menu.");
+                    }
+                    else
+                    {
+                        var newTitle = PromptForString("Album title: ");
+                        var newIsExplicit = PromptForBool("Is this album categorized as explicit? 'True or False': ");
+                        var newReleaseDate = PromptForDateTime("The date and time album was released: Input in formart of 'YYYY-MM-DD hh:mm:ss' ");
+
+                        var newAlbum = new Album()
+                        {
+                            BandId = selectedBand.Id,
+                            Title = newTitle,
+                            IsExplicit = newIsExplicit,
+                            ReleaseDate = newReleaseDate
+                        };
+                        context.Albums.Add(newAlbum);
+                        context.SaveChanges();
+                    }
+                }
+
                 if (choice == 7)
                 {
                     Console.WriteLine("Here are the list of albums in order by release date: ");
+                    Console.WriteLine();
+
                     foreach (var album in albums)
                     {
-                        var albumInOrderByDateReleased = context.Albums.OrderBy(albums => albums.ReleaseDate);
+                        var albumInOrderByDateReleased = context.Albums.OrderBy(album => album.ReleaseDate);
                         var description = album.Description();
 
                         Console.WriteLine(description);
+                        Console.WriteLine();
                     }
                     Console.WriteLine("Press any key to return to the main menu");
                     Console.ReadKey();
