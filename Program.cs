@@ -154,7 +154,7 @@ namespace BandsOfSuncoast
                         Console.WriteLine($"({band.Id}), {band.Name} ");
                     }
 
-                    var selectedBandId = PromptForInteger("Which band would you like to chose?");
+                    var selectedBandId = PromptForInteger("Which band would you like to choose?");
                     var selectedBand = bands.FirstOrDefault(band => band.Id == selectedBandId);
 
                     if (selectedBand == null)
@@ -201,7 +201,7 @@ namespace BandsOfSuncoast
                         Console.WriteLine($"You have successfully removed this band from Bands of Suncoast");
                         Console.WriteLine();
                     }
-                    Console.WriteLine("Press any key to return to the main menu");
+                    Console.WriteLine("Press any key to return to the main menu.");
                     Console.ReadKey();
                     context.SaveChanges();
                 }
@@ -215,7 +215,7 @@ namespace BandsOfSuncoast
                         Console.WriteLine();
                     }
 
-                    var selectedBandId = PromptForInteger("Which band  would you like to sign?");
+                    var selectedBandId = PromptForInteger("Which band would you like to sign?");
                     var selectedBand = bands.FirstOrDefault(band => band.Id == selectedBandId);
 
                     if (selectedBand == null)
@@ -229,7 +229,7 @@ namespace BandsOfSuncoast
                         Console.WriteLine($"You have signed this band to Bands of Suncoast");
                         Console.WriteLine();
                     }
-                    Console.WriteLine("Press any key to return to the main menu");
+                    Console.WriteLine("Press any key to return to the main menu.");
                     Console.ReadKey();
                     context.SaveChanges();
                 }
@@ -257,7 +257,7 @@ namespace BandsOfSuncoast
                             Console.WriteLine(album.Title);
                             Console.WriteLine();
                         }
-                        Console.WriteLine("Press any key to return to the main menu");
+                        Console.WriteLine("Press any key to return to the main menu.");
                         Console.ReadKey();
                     }
                 }
@@ -274,7 +274,7 @@ namespace BandsOfSuncoast
                         Console.WriteLine(description);
                         Console.WriteLine();
                     }
-                    Console.WriteLine("Press any key to return to the main menu");
+                    Console.WriteLine("Press any key to return to the main menu.");
                     Console.ReadKey();
                 }
 
@@ -290,7 +290,7 @@ namespace BandsOfSuncoast
                             Console.WriteLine();
                         }
                     }
-                    Console.WriteLine("This is the list of current bands that are signed. Press any key to return to the main menu");
+                    Console.WriteLine("This is the list of current bands that are signed. Press any key to return to the main menu.");
                     Console.ReadKey();
                 }
 
@@ -306,7 +306,7 @@ namespace BandsOfSuncoast
                             Console.WriteLine();
                         }
                     }
-                    Console.WriteLine("This is the list of current bands signed. Press any key to return to the main menu");
+                    Console.WriteLine("This is the list of current bands signed. Press any key to return to the main menu.");
                     Console.ReadKey();
                 }
 
