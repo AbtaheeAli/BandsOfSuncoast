@@ -74,6 +74,13 @@ namespace BandsOfSuncoast
             var albums = context.Albums.
             Include(album => album.Band);
 
+            Console.WriteLine();
+            Console.WriteLine("Welcome to Bands of Suncoast: The Ultimate Label for Hit Records");
+            Console.WriteLine();
+            Console.WriteLine("Press any key to view the main menu.");
+            Console.ReadKey();
+            Console.WriteLine();
+
             var userHasQuitApp = false;
 
             while (userHasQuitApp == false)
@@ -82,23 +89,23 @@ namespace BandsOfSuncoast
 
                 Console.WriteLine("Please select a number from one of the choices: ");
 
-                Console.WriteLine("(1) - View all the bands in Bands of Suncoast");
+                Console.WriteLine("(1) - View all the bands in Bands of Suncoast.");
 
-                Console.WriteLine("(2) - Add a band to your directory");
+                Console.WriteLine("(2) - Add a band to your directory.");
 
-                Console.WriteLine("(3) - Add an album for a band");
+                Console.WriteLine("(3) - Add an album for a band.");
 
-                Console.WriteLine("(4) - Let a band go from Bands of Suncoast");
+                Console.WriteLine("(4) - Let a band go from Bands of Suncoast.");
 
-                Console.WriteLine("(5) - Resign a band to Bands of Suncoast");
+                Console.WriteLine("(5) - Resign a band to Bands of Suncoast.");
 
-                Console.WriteLine("(6) - View a specific band and their albums");
+                Console.WriteLine("(6) - View a specific band and their albums.");
 
-                Console.WriteLine("(7) - View all albums in order by release date");
+                Console.WriteLine("(7) - View all albums in order by release date.");
 
-                Console.WriteLine("(8) - View all bands that are signed by Bands of Suncoast");
+                Console.WriteLine("(8) - View all bands that are signed by Bands of Suncoast.");
 
-                Console.WriteLine("(9) - View all bands that are not signed by Bands of Suncoast");
+                Console.WriteLine("(9) - View all bands that are not signed by Bands of Suncoast.");
 
                 Console.WriteLine("(10) - Quit application");
 
@@ -113,7 +120,7 @@ namespace BandsOfSuncoast
                     {
                         Console.WriteLine(band.Name);
                     }
-                    Console.WriteLine("Press any key to return to the main menu");
+                    Console.WriteLine("Press any key to return to the main menu.");
                     Console.ReadKey();
                 }
 
@@ -272,6 +279,7 @@ namespace BandsOfSuncoast
                     foreach (var album in albumInOrderByDateReleased)
                     {
                         var description = album.AlbumDescription();
+
                         Console.WriteLine(description);
                         Console.WriteLine();
                     }
