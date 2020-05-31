@@ -53,8 +53,10 @@ namespace BandsOfSuncoast
             Console.Write(prompt);
             bool inputFromUser;
             var isThisGoodInput = bool.TryParse(Console.ReadLine(), out inputFromUser);
+            var Yes = true;
+            var No = false;
 
-            if (inputFromUser == true || inputFromUser == false)
+            if (inputFromUser == Yes || inputFromUser == No)
             {
                 return inputFromUser;
             }
@@ -122,6 +124,7 @@ namespace BandsOfSuncoast
                     }
                     Console.WriteLine("Press any key to return to the main menu.");
                     Console.ReadKey();
+                    Console.WriteLine();
                 }
 
                 if (choice == 2)
@@ -131,7 +134,7 @@ namespace BandsOfSuncoast
                     var newNumberOfMembers = PromptForInteger("Number Of Members: ");
                     var newWebsite = PromptForString("Website: ");
                     var newStyle = PromptForString("Style: ");
-                    var newIsSigned = PromptForBool("Is This Group Signed 'True or False': ");
+                    var newIsSigned = PromptForBool("Is This Group Signed 'Yes or No': ");
                     var newContactName = PromptForString("Bands Main Contact Name: ");
                     var newContactPhoneNumber = PromptForString($"Contact number for {newContactName}: ");
 
@@ -150,6 +153,7 @@ namespace BandsOfSuncoast
 
                     context.Bands.Add(newBand);
                     context.SaveChanges();
+                    Console.WriteLine();
                 }
 
                 if (choice == 3)
@@ -170,7 +174,7 @@ namespace BandsOfSuncoast
                     else
                     {
                         var newTitle = PromptForString("Album title: ");
-                        var newIsExplicit = PromptForBool("Is this album categorized as explicit? 'True or False': ");
+                        var newIsExplicit = PromptForBool("Is this album categorized as explicit? 'Yes or No': ");
                         var newReleaseDate = PromptForDateTime("The date and time album was released: Input in formart of 'YYYY-MM-DD hh:mm:ss' ");
 
                         var newAlbum = new Album()
@@ -182,6 +186,7 @@ namespace BandsOfSuncoast
                         };
                         context.Albums.Add(newAlbum);
                         context.SaveChanges();
+                        Console.WriteLine();
                     }
                 }
                 if (choice == 4)
@@ -210,6 +215,7 @@ namespace BandsOfSuncoast
                     Console.WriteLine("Press any key to return to the main menu.");
                     Console.ReadKey();
                     context.SaveChanges();
+                    Console.WriteLine();
                 }
 
                 if (choice == 5)
@@ -238,6 +244,7 @@ namespace BandsOfSuncoast
                     Console.WriteLine("Press any key to return to the main menu.");
                     Console.ReadKey();
                     context.SaveChanges();
+                    Console.WriteLine();
                 }
 
                 if (choice == 6)
@@ -266,6 +273,7 @@ namespace BandsOfSuncoast
                         }
                         Console.WriteLine("Press any key to return to the main menu.");
                         Console.ReadKey();
+                        Console.WriteLine();
                     }
                 }
 
@@ -285,6 +293,7 @@ namespace BandsOfSuncoast
                     }
                     Console.WriteLine("Press any key to return to the main menu.");
                     Console.ReadKey();
+                    Console.WriteLine();
                 }
 
                 if (choice == 8)
@@ -301,6 +310,7 @@ namespace BandsOfSuncoast
                     }
                     Console.WriteLine("This is the list of current bands that are signed. Press any key to return to the main menu.");
                     Console.ReadKey();
+                    Console.WriteLine();
                 }
 
                 if (choice == 9)
@@ -317,6 +327,7 @@ namespace BandsOfSuncoast
                     }
                     Console.WriteLine("This is the list of current bands signed. Press any key to return to the main menu.");
                     Console.ReadKey();
+                    Console.WriteLine();
                 }
 
                 if (choice == 10)
