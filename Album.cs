@@ -14,7 +14,7 @@ namespace BandsOfSuncoast
         public Band Band { get; set; }
         public string AlbumDescription()
         {
-            var descriptionOfAlbums = ($"{Band.Name} released album {Title} around {ReleaseDate}");
+            var descriptionOfAlbums = $"{Title} around {ReleaseDate}";
 
             return descriptionOfAlbums;
         }

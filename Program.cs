@@ -6,7 +6,6 @@ namespace BandsOfSuncoast
 {
     class Program
     {
-
         static string PromptForString(string prompt)
         {
             Console.Write(prompt);
@@ -89,7 +88,7 @@ namespace BandsOfSuncoast
 
                 Console.WriteLine("(3) - Add an album for a band");
 
-                Console.WriteLine("(4) - Remove a band from Bands of Suncoast");
+                Console.WriteLine("(4) - Let a band go from Bands of Suncoast");
 
                 Console.WriteLine("(5) - Resign a band to Bands of Suncoast");
 
@@ -253,24 +252,26 @@ namespace BandsOfSuncoast
                     {
                         foreach (var album in albums)
                         {
-                            var selectedAlbum = albums.Select(band => band.Id == selectedBandId);
-                            Console.WriteLine(album.Title);
-                            Console.WriteLine();
+                            if (album.BandId == selectedBandId)
+                            {
+                                Console.WriteLine(album.Title);
+                            }
                         }
                         Console.WriteLine("Press any key to return to the main menu.");
                         Console.ReadKey();
                     }
                 }
+
                 if (choice == 7)
                 {
                     Console.WriteLine("Here are the list of albums in order by release date: ");
                     Console.WriteLine();
 
-                    foreach (var album in albums)
-                    {
-                        var albumInOrderByDateReleased = context.Albums.OrderBy(album => album.ReleaseDate);
-                        var description = album.AlbumDescription();
+                    var albumInOrderByDateReleased = context.Albums.OrderBy(album => album.ReleaseDate);
 
+                    foreach (var album in albumInOrderByDateReleased)
+                    {
+                        var description = album.AlbumDescription();
                         Console.WriteLine(description);
                         Console.WriteLine();
                     }
