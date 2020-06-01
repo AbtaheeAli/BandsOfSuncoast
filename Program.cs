@@ -76,12 +76,8 @@ namespace BandsOfSuncoast
             var albums = context.Albums.
             Include(album => album.Band);
 
-            Console.WriteLine();
-            Console.WriteLine("Welcome to Bands of Suncoast: The Ultimate Label for Hit Records");
-            Console.WriteLine();
-            Console.WriteLine("Press any key to view the main menu.");
-            Console.ReadKey();
-            Console.WriteLine();
+            var FrontEnd = new FrontEnd();
+            FrontEnd.Greeting();
 
             var userHasQuitApp = false;
 
@@ -164,7 +160,7 @@ namespace BandsOfSuncoast
                         Console.WriteLine($"({band.Id}), {band.Name} ");
                     }
 
-                    var selectedBandId = PromptForInteger("Which band would you like to choose?");
+                    var selectedBandId = PromptForInteger("Which band would you like to choose? Please enter the number that is associated with the band you want to choose");
                     var selectedBand = bands.FirstOrDefault(band => band.Id == selectedBandId);
 
                     if (selectedBand == null)
@@ -325,7 +321,7 @@ namespace BandsOfSuncoast
                             Console.WriteLine();
                         }
                     }
-                    Console.WriteLine("This is the list of current bands signed. Press any key to return to the main menu.");
+                    Console.WriteLine("This is the list of current bands that are not signed. Press any key to return to the main menu.");
                     Console.ReadKey();
                     Console.WriteLine();
                 }
