@@ -109,7 +109,7 @@ namespace BandsOfSuncoast
 
                 Console.WriteLine("<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>");
 
-                var choice = PromptForInteger("Choice:");
+                var choice = PromptForInteger("Choice: ");
 
                 if (choice == 1)
                 {
@@ -321,7 +321,7 @@ namespace BandsOfSuncoast
                             Console.WriteLine();
                         }
                     }
-                    Console.WriteLine("This is the list of current bands that are not signed. Press any key to return to the main menu.");
+                    Console.WriteLine("This is the list of current bands signed. Press any key to return to the main menu.");
                     Console.ReadKey();
                     Console.WriteLine();
                 }
