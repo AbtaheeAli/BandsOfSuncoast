@@ -1,6 +1,6 @@
 using System;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+
 
 namespace BandsOfSuncoast
 {
@@ -13,8 +13,6 @@ namespace BandsOfSuncoast
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseNpgsql("server=localhost;database=SuncoastBands");
-            // var loggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
-            // optionsBuilder.UseLoggerFactory(loggerFactory);
         }
     }
 }
